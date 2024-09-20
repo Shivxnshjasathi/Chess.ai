@@ -221,12 +221,115 @@ def evaluate_board(self, board):
             <p>This function evaluates a board position by summing the scores of each piece based on its position and type.</p>
         </section>
 
-        <section id="sample-dry-run" class="section">
-            <h2>5. Sample Dry Run</h2>
-            <p>Below is a sample dry run of the AI's decision-making process for a given board state:</p>
-            <img src="https://media.giphy.com/media/3o6Zt5G5b1TTWpvWPC/giphy.gif" alt="Sample Dry Run" class="gif">
-            <p>The dry run shows how the AI evaluates various board positions, applies the minimax algorithm, and selects the optimal move based on its evaluation function and search depth.</p>
-        </section>
+       <section id="sample-dry-run" class="section">
+    <h2>5. Sample Dry Run</h2>
+    <p>Below is a sample dry run of the AI's decision-making process for a given board state:</p>
+
+    <!-- Initial state -->
+    <div class="dry-run-step">
+        <h3>1. Initial State:</h3>
+        <pre>
+r n b q k b n r
+p p p p p p p p
+. . . . . . . .
+. . . . . . . .
+. . . . . . . .
+. . . . . . . .
+P P P P P P P P
+R N B Q K B N R
+        </pre>
+        <p><strong>Score:</strong> Human: 0 | AI: 0</p>
+        <img src="https://media.giphy.com/media/3o6Zt5G5b1TTWpvWPC/giphy.gif" alt="Sample Dry Run" class="gif">
+        <p>This is the initial state of the board before any moves have been made.</p>
+    </div>
+
+    <!-- Step 2: Human move e2e4 -->
+    <div class="dry-run-step">
+        <h3>2. Human move: e2e4</h3>
+        <pre>
+r n b q k b n r
+p p p p . p p p
+. . . . p . . .
+. . . . . . . .
+. . . P . . . .
+. . . . . . . .
+P P P P . P P P
+R N B Q K B N R
+        </pre>
+        <p><strong>Score:</strong> Human: 20 | AI: 0</p>
+        <p>The human moves a pawn to control the center of the board.</p>
+    </div>
+
+    <!-- Step 3: AI move e7e5 -->
+    <div class="dry-run-step">
+        <h3>3. AI move: e7e5</h3>
+        <pre>
+r n b q k b n r
+p p p p . p p p
+. . . . . . . .
+. . . . p . . .
+. . . P . p . .
+. . . . . . . .
+P P P P . P P P
+R N B Q K B N R
+        </pre>
+        <p><strong>Score:</strong> Human: 20 | AI: 20</p>
+        <p>The AI mirrors the human’s move to also control the center of the board.</p>
+    </div>
+
+    <!-- Step 4: Human move Ng1f3 -->
+    <div class="dry-run-step">
+        <h3>4. Human move: Ng1f3</h3>
+        <pre>
+r n b q k b n r
+p p p p . p p p
+. . . . . . . .
+. . . . p . . .
+. . . P . p . .
+. . . . . N . .
+P P P P . P P P
+R N B Q K B . R
+        </pre>
+        <p><strong>Score:</strong> Human: 30 | AI: 20</p>
+        <p>The human develops their knight, aiming to control more of the board.</p>
+    </div>
+
+    <!-- Step 5: AI move Nb8c6 -->
+    <div class="dry-run-step">
+        <h3>5. AI move: Nb8c6</h3>
+        <pre>
+r . b q k b n r
+p p p p . p p p
+. . n . . . . .
+. . . . p . . .
+. . . P . p . .
+. . . . . N . .
+P P P P . P P P
+R N B Q K B . R
+        </pre>
+        <p><strong>Score:</strong> Human: 30 | AI: 30</p>
+        <p>The AI develops its knight, matching the human's advancement.</p>
+    </div>
+
+    <!-- Step 6: Checkmate example -->
+    <div class="dry-run-step">
+        <h3>6. Checkmate:</h3>
+        <pre>
+r . b q k b n r
+p p p p . p p p
+. . n . . . . .
+. . . . p . N .
+. . . P . p . .
+. . . . . . . .
+P P P P . P P P
+R N B Q K . R .
+        </pre>
+        <p><strong>Score:</strong> Human: 50 | AI: 100 (AI wins)</p>
+        <p>In this final position, the human's king is in checkmate, and the AI wins the game.</p>
+    </div>
+
+</section>
+
 
         <section id="future-work" class="section">
             <h2>6. Future Work</h2>
