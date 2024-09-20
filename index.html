@@ -69,7 +69,7 @@
 <body>
 
 <header>
-    <h1>Chess AI Project Report</h1>
+    <h1 style="color: white;">Chess AI Project Report</h1>
 </header>
 
 <main>
@@ -110,7 +110,7 @@
             <h3>3.1 Minimax with Alpha-Beta Pruning</h3>
             <p>The minimax algorithm is the foundation of many game-playing AI systems. It works by recursively exploring possible moves to a certain depth and evaluating the resulting board positions. Alpha-beta pruning optimizes this process by cutting off branches that cannot influence the final decision, reducing the number of positions that need to be evaluated.</p>
             <p>In our implementation, the algorithm alternates between maximizing and minimizing player turns. The AI maximizes its advantage while minimizing the opponent's advantage. Alpha-beta pruning helps in skipping unnecessary calculations by maintaining two values, alpha and beta, which represent the best already explored option along the path to the root for the maximizing and minimizing players, respectively.</p>
-            <img src="https://media.giphy.com/media/3o6ozCdx4ziTHkb8kE/giphy.gif" alt="Minimax Algorithm Animation" class="gif">
+            <img src="https://i.sstatic.net/mMRsa.gif" alt="Minimax Algorithm Animation" class="gif">
 
             <h3>3.2 Quiescence Search</h3>
             <p>Quiescence search addresses the horizon effect, where the algorithm may miss critical tactical opportunities just beyond its search depth. By continuing the search past the main depth for "quiet" positions, the AI can better evaluate positions where captures or checks occur.</p>
