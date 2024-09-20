@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chess AI Project Report</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --background-color: #ecf0f1;
+            --text-color: #34495e;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+
+        nav {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.5rem;
+        }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+
+        nav ul li {
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        main {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            background-color: white;
+            margin-bottom: 2rem;
+            padding: 2rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            color: var(--primary-color);
+        }
+
+        pre {
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 1rem;
+            overflow-x: auto;
+        }
+
+        .chess-board {
+            font-family: 'Courier New', monospace;
+            white-space: pre;
+            line-height: 1.2;
+            background-color: #f8f9fa;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Chess AI Project Report</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#overview">Project Overview</a></li>
+            <li><a href="#algorithms">Algorithms</a></li>
+            <li><a href="#code">Code Explanation</a></li>
+            <li><a href="#dry-run">Sample Dry Run</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>This project implements a chess AI capable of playing against a human opponent. The AI uses advanced algorithms from game theory and artificial intelligence to make decisions and play competitively.</p>
+        </section>
+
+        <section id="overview">
+            <h2>Project Overview</h2>
+            <p>The chess AI is implemented in Python, utilizing the `chess` library for game representation and rule enforcement. The AI employs several key algorithms and techniques:</p>
+            <ul>
+                <li>Minimax algorithm with alpha-beta pruning</li>
+                <li>Quiescence search</li>
+                <li>Move ordering</li>
+                <li>Position evaluation using piece values and piece-square tables</li>
+            </ul>
+            <p>The project consists of a `ChessAI` class that encapsulates the AI's logic, and a main game loop that facilitates play between the AI and a human player.</p>
+        </section>
+
+        <section id="algorithms">
+            <h2>Algorithms and Techniques</h2>
+            <h3>Minimax with Alpha-Beta Pruning</h3>
+            <p>The core of the AI's decision-making process is the minimax algorithm with alpha-beta pruning. This algorithm explores possible future game states, alternating between maximizing the AI's advantage and minimizing the opponent's advantage. Alpha-beta pruning optimizes this search by eliminating branches that are guaranteed to be worse than already explored options.</p>
+
+            <h3>Quiescence Search</h3>
+            <p>To mitigate the horizon effect (where the AI might miss important tactical opportunities just beyond its search depth), the AI employs quiescence search. This technique continues to explore capture moves beyond the main search depth until a "quiet" position is reached.</p>
+
+            <h3>Move Ordering</h3>
+            <p>To improve the efficiency of alpha-beta pruning, the AI uses a simple move ordering system. Moves are ordered based on their previous evaluations, with a random factor added to encourage exploration.</p>
+
+            <h3>Position Evaluation</h3>
+            <p>The AI evaluates board positions using a combination of material balance (the value of pieces on the board) and positional factors (using piece-square tables). This provides a numerical score for any given board state, allowing the AI to compare different positions.</p>
+        </section>
+
+        <section id="code">
+            <h2>Code Explanation</h2>
+            <p>Here's a brief overview of the main components of the code:</p>
+            <pre>
+import chess
+import random
+
+class ChessAI:
+    def __init__(self, depth=3):
+        self.depth = depth
+        self.move_scores = {}
+        self.move_history = []
+        self.exploration_rate = 0.1
+        
+    def choose_move(self, board):
+        # Implementation of move selection using minimax and alpha-beta pruning
+        
+    def minimax(self, board, depth, alpha, beta, maximizing_player):
+        # Implementation of minimax algorithm with alpha-beta pruning
+        
+    def quiescence_search(self, board, depth, alpha, beta, maximizing_player):
+        # Implementation of quiescence search
+        
+    def evaluate_board(self, board):
+        # Implementation of board evaluation
+        
+    # Helper methods for move ordering and history tracking
+            </pre>
+            <p>The main game loop facilitates play between the AI and a human player, alternating turns and displaying the game state.</p>
+        </section>
+
+        <section id="dry-run">
+            <h2>Sample Dry Run</h2>
+            <p>Let's walk through a complete game:</p>
+
+            <h3>1. Initial state:</h3>
+            <div class="chess-board">
+r n b q k b n r
+p p p p p p p p
+. . . . . . . .
+. . . . . . . .
+. . . . . . . .
+. . . . . . . .
+P P P P P P P P
+R N B Q K B N R
+            </div>
+            <p>Score: Human: 0 | AI: 0</p>
+
+            <h3>2. Human move: e2e4</h3>
+            <div class="chess-board">
+r n b q k b n r
+p p p p p p p p
+. . . . . . . .
+. . . . . . . .
+. . . . P . . .
+. . . . . . . .
+P P P P . P P P
+R N B Q K B N R
+            </div>
+            <p>Score: Human: 20 | AI: 0</p>
+
+            <h3>3. AI move: e7e5</h3>
+            <div class="chess-board">
+r n b q k b n r
+p p p p . p p p
+. . . . . . . .
+. . . . p . . .
+. . . . P . . .
+. . . . . . . .
+P P P P . P P P
+R N B Q K B N R
+            </div>
+            <p>Score: Human: 20 | AI: 20</p>
+
+            <h3>4. Human move: Ng1f3</h3>
+            <div class="chess-board">
+r n b q k b n r
+p p p p . p p p
+. . . . . . . .
+. . . . p . . .
+. . . . P . . .
+. . . . . N . .
+P P P P . P P P
+R N B Q K B . R
+            </div>
+            <p>Score: Human: 40 | AI: 20</p>
+
+            <h3>5. AI move: Nb8c6</h3>
+            <div class="chess-board">
+r . b q k b n r
+p p p p . p p p
+. . n . . . . .
+. . . . p . . .
+. . . . P . . .
+. . . . . N . .
+P P P P . P P P
+R N B Q K B . R
+            </div>
+            <p>The game continues until checkmate...</p>
+        </section>
+
+        <section id="conclusion">
+            <h2>Conclusion</h2>
+            <p>The Chess AI project demonstrates the power of algorithms such as minimax, alpha-beta pruning, and quiescence search. By using these techniques, the AI is able to play at a competitive level and make smart decisions throughout the game.</p>
+        </section>
+    </main>
+</body>
+
+</html>
