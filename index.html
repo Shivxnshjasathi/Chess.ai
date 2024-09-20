@@ -101,7 +101,6 @@
                 <li><strong>Move Ordering:</strong> A technique to improve the efficiency of alpha-beta pruning by ordering moves based on their potential impact.</li>
                 <li><strong>Position Evaluation:</strong> A heuristic function that evaluates board positions based on material balance and positional advantages.</li>
             </ul>
-            <img src="https://www.artstation.com/artwork/XBxxR" alt="Chess AI Overview">
         </section>
 
         <section id="algorithms" class="section">
@@ -110,22 +109,19 @@
             <h3>3.1 Minimax with Alpha-Beta Pruning</h3>
             <p>The minimax algorithm is the foundation of many game-playing AI systems. It works by recursively exploring possible moves to a certain depth and evaluating the resulting board positions. Alpha-beta pruning optimizes this process by cutting off branches that cannot influence the final decision, reducing the number of positions that need to be evaluated.</p>
             <p>In our implementation, the algorithm alternates between maximizing and minimizing player turns. The AI maximizes its advantage while minimizing the opponent's advantage. Alpha-beta pruning helps in skipping unnecessary calculations by maintaining two values, alpha and beta, which represent the best already explored option along the path to the root for the maximizing and minimizing players, respectively.</p>
-            <img src="https://i.sstatic.net/mMRsa.gif" alt="Minimax Algorithm Animation" class="gif">
 
             <h3>3.2 Quiescence Search</h3>
             <p>Quiescence search addresses the horizon effect, where the algorithm may miss critical tactical opportunities just beyond its search depth. By continuing the search past the main depth for "quiet" positions, the AI can better evaluate positions where captures or checks occur.</p>
             <p>This technique helps avoid situations where the AI evaluates a position that is actually unstable due to upcoming captures or checks. It ensures that the AI only considers stable positions, thus providing a more accurate evaluation of the board state.</p>
-            <img src="https://media.giphy.com/media/3o6ozgDIqzjZTchCkI/giphy.gif" alt="Quiescence Search Animation" class="gif">
 
             <h3>3.3 Move Ordering</h3>
             <p>Effective move ordering significantly enhances the performance of alpha-beta pruning. By ordering moves based on their previous evaluations and introducing a degree of randomness, the AI can explore the most promising moves first. This improves the likelihood of cutting off less favorable branches early in the search process.</p>
             <p>The move ordering strategy involves sorting moves by their potential impact, using historical data, and sometimes adding a random factor to explore less obvious moves that may provide unexpected advantages.</p>
-            <img src="https://media.giphy.com/media/xTiTnGrbxuYBRKPCco/giphy.gif" alt="Move Ordering Animation" class="gif">
 
             <h3>3.4 Position Evaluation</h3>
             <p>Position evaluation is crucial for assessing the strength of a board position. Our AI uses piece values and piece-square tables to evaluate positions. Piece values assign a numerical score to each piece, reflecting its relative strength. Piece-square tables provide additional scores based on the piece's position on the board, encouraging strategic placement.</p>
             <p>This evaluation function allows the AI to compare different board states and choose moves that improve its position or capitalize on the opponent's weaknesses.</p>
-            <img src="https://media.giphy.com/media/26xBzI8F6BXxmtMyM/giphy.gif" alt="Position Evaluation Animation" class="gif">
+            
         </section>
 
         <section id="code-explanation" class="section">
@@ -239,7 +235,6 @@ P P P P P P P P
 R N B Q K B N R
         </pre>
         <p><strong>Score:</strong> Human: 0 | AI: 0</p>
-        <img src="https://media.giphy.com/media/3o6Zt5G5b1TTWpvWPC/giphy.gif" alt="Sample Dry Run" class="gif">
         <p>This is the initial state of the board before any moves have been made.</p>
     </div>
 
@@ -340,18 +335,16 @@ R N B Q K . R .
                 <li><strong>Endgame Tablebases:</strong> Utilizing endgame tablebases to handle endgame scenarios with perfect accuracy.</li>
                 <li><strong>Machine Learning:</strong> Exploring machine learning techniques to improve the AI's ability to learn from past games and adapt its strategy over time.</li>
             </ul>
-            <img src="https://media.giphy.com/media/3o6Zt5X9W8b0Jwpv6M/giphy.gif" alt="Future Work Animation" class="gif">
         </section>
 
         <section id="conclusion" class="section">
             <h2>7. Conclusion</h2>
             <p>This project demonstrates a functional and competitive chess AI using Python. The implemented algorithms provide a robust foundation for more advanced AI strategies and optimizations. Future improvements may include enhanced evaluation functions, more sophisticated move ordering techniques, and integration with chess databases for opening theory and endgame tablebases.</p>
             <p>Overall, this AI represents a significant step toward developing intelligent systems capable of mastering complex games like chess. The project serves as a valuable learning experience and a basis for further exploration in AI and game theory.</p>
-            <img src="https://media.giphy.com/media/3o6ozxP9cKmhf5U3mo/giphy.gif" alt="Chess AI Conclusion" class="gif">
         </section>
         
         <footer>
-            <p>© 2024 Chess AI Project</p>
+            <p>© 2024 Chess AI Project Shivansh jasathi</p>
         </footer>
     </div>
 </main>
