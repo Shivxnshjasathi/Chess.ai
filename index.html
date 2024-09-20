@@ -1,242 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chess AI Project Report</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-color: #3498db;
-            --secondary-color: #2c3e50;
-            --background-color: #ecf0f1;
-            --text-color: #34495e;
-            --heading-font: 'Poppins', sans-serif;
-            --body-font: 'Poppins', sans-serif;
-            --border-radius: 10px;
-        }
-
         body {
-            font-family: var(--body-font);
-            color: var(--text-color);
-            background-color: var(--background-color);
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
         }
-
-        header {
-            background: linear-gradient(90deg, var(--primary-color), #1abc9c);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            font-family: var(--heading-font);
-        }
-
-        nav {
-            background-color: var(--secondary-color);
+        header, footer {
+            background: #333;
+            color: #fff;
             padding: 1rem;
+            text-align: center;
         }
-
-        nav ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-        }
-
-        nav ul li {
-            display: inline;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        nav ul li a:hover {
-            text-decoration: underline;
-        }
-
         main {
-            max-width: 1200px;
-            margin: 0 auto;
             padding: 2rem;
         }
-
-        section {
-            background-color: white;
-            margin-bottom: 2rem;
-            padding: 2rem;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        h1, h2, h3 {
+            color: #333;
         }
-
-        h1, h2 {
-            color: var(--primary-color);
-            text-align: center;
-        }
-
-        p {
-            line-height: 1.8;
-            font-size: 1.1rem;
-        }
-
-        pre {
-            background-color: #f8f9fa;
-            border: 1px solid #e9ecef;
-            border-radius: var(--border-radius);
-            padding: 1rem;
-            overflow-x: auto;
-            font-family: 'Courier New', monospace;
-        }
-
-        .image-container {
-            text-align: center;
-            margin: 1.5rem 0;
-        }
-
-        .image-container img {
+        img {
             max-width: 100%;
             height: auto;
-            border-radius: var(--border-radius);
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
-
-        .code-block {
-            background-color: #f5f7f9;
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            font-family: 'Courier New', monospace;
-            line-height: 1.5;
+        code {
+            background: #f4f4f4;
+            border-radius: 4px;
+            padding: 0.5rem;
+            display: block;
+            white-space: pre-wrap;
         }
-
-        footer {
-            background-color: var(--secondary-color);
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            font-size: 0.9rem;
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
         }
-
-        .highlight {
-            background-color: #dff9fb;
-            padding: 0.2rem 0.5rem;
-            border-radius: var(--border-radius);
-            color: var(--primary-color);
-        }
-
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            main {
-                padding: 1rem;
-            }
-
-            .image-container img {
-                max-width: 90%;
-            }
+        .gif {
+            display: block;
+            margin: 1rem auto;
         }
     </style>
 </head>
-
 <body>
-    <header>
-        <h1>Chess AI Project Report</h1>
-    </header>
 
-    <nav>
+<header>
+    <h1>Chess AI Project Report</h1>
+</header>
+
+<main>
+    <div class="container">
+        <h2>Table of Contents</h2>
         <ul>
             <li><a href="#introduction">Introduction</a></li>
-            <li><a href="#overview">Overview</a></li>
-            <li><a href="#algorithms">Algorithms</a></li>
-            <li><a href="#code">Code</a></li>
+            <li><a href="#project-overview">Project Overview</a></li>
+            <li><a href="#algorithms">Algorithms and Techniques</a></li>
+            <li><a href="#code-explanation">Code Explanation</a></li>
+            <li><a href="#dry-run">Sample Dry Run</a></li>
             <li><a href="#conclusion">Conclusion</a></li>
         </ul>
-    </nav>
 
-    <main>
-        <section id="introduction">
-            <h2>Introduction</h2>
-            <p>The goal of this project was to create a competitive Chess AI that uses advanced algorithms to make optimal moves in real-time, simulating intelligent decision-making. The AI evaluates various possible moves and their outcomes using a blend of strategic algorithms, making it highly effective in gameplay.</p>
+        <h2 id="introduction">1. Introduction</h2>
+        <p>This project implements a chess AI capable of playing against a human opponent. The AI uses advanced algorithms from game theory and artificial intelligence to make decisions and play competitively.</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Chess_board_starting_position.svg/1200px-Chess_board_starting_position.svg.png" alt="Chess Board">
 
-            <div class="image-container">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Chess_Low_Pieces.svg/240px-Chess_Low_Pieces.svg.png" alt="Chess AI concept">
-            </div>
-        </section>
+        <h2 id="project-overview">2. Project Overview</h2>
+        <p>The chess AI is implemented in Python, utilizing the <code>chess</code> library for game representation and rule enforcement. The AI employs several key algorithms and techniques:</p>
+        <ul>
+            <li>Minimax algorithm with alpha-beta pruning</li>
+            <li>Quiescence search</li>
+            <li>Move ordering</li>
+            <li>Position evaluation using piece values and piece-square tables</li>
+        </ul>
+        <img src="https://www.artstation.com/artwork/XBxxR" alt="Chess AI Overview">
 
-        <section id="overview">
-            <h2>Project Overview</h2>
-            <p>In chess AI development, algorithms like <span class="highlight">Minimax</span> and <span class="highlight">Alpha-Beta Pruning</span> are crucial. The AI can foresee potential moves and consequences, using <span class="highlight">Quiescence Search</span> to eliminate noise from certain types of move sequences. To evaluate game positions, the AI applies a scoring system based on piece values and positional strength using piece-square tables.</p>
-        </section>
+        <h2 id="algorithms">3. Algorithms and Techniques</h2>
+        
+        <h3>3.1 Minimax with Alpha-Beta Pruning</h3>
+        <p>The core of the AI's decision-making process is the minimax algorithm with alpha-beta pruning. This algorithm explores possible future game states, alternating between maximizing the AI's advantage and minimizing the opponent's advantage. Alpha-beta pruning optimizes this search by eliminating branches that are guaranteed to be worse than already explored options.</p>
+        <img src="https://media.giphy.com/media/3o6ozCdx4ziTHkb8kE/giphy.gif" alt="Minimax Algorithm Animation" class="gif">
 
-        <section id="algorithms">
-            <h2>Algorithms and Techniques</h2>
-            <h3>Minimax Algorithm with Alpha-Beta Pruning</h3>
-            <p>The <span class="highlight">Minimax algorithm</span> evaluates all possible moves in a game tree to find the move that maximizes the player's advantage while minimizing the opponent's potential. <span class="highlight">Alpha-beta pruning</span> optimizes this by cutting off parts of the tree that don’t need to be explored, speeding up the search without affecting the result.</p>
+        <h3>3.2 Quiescence Search</h3>
+        <p>To mitigate the horizon effect (where the AI might miss important tactical opportunities just beyond its search depth), the AI employs quiescence search. This technique continues to explore capture moves beyond the main search depth until a "quiet" position is reached.</p>
+        <img src="https://media.giphy.com/media/3o6ozgDIqzjZTchCkI/giphy.gif" alt="Quiescence Search Animation" class="gif">
 
-            <div class="image-container">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Minimax.svg/300px-Minimax.svg.png" alt="Minimax Algorithm">
-                <p>Figure: Example of a Minimax game tree.</p>
-            </div>
+        <h3>3.3 Move Ordering</h3>
+        <p>To improve the efficiency of alpha-beta pruning, the AI uses a simple move ordering system. Moves are ordered based on their previous evaluations, with a random factor added to encourage exploration.</p>
+        <img src="https://media.giphy.com/media/xTiTnGrbxuYBRKPCco/giphy.gif" alt="Move Ordering Animation" class="gif">
 
-            <h3>Quiescence Search</h3>
-            <p>The <span class="highlight">Quiescence search</span> enhances the Minimax algorithm by preventing it from making poor decisions due to the <em>horizon effect</em> (evaluating an unstable position just before it becomes stable). Instead, the AI explores capture moves beyond the normal search depth until a stable or "quiet" position is found.</p>
-            
-            <div class="image-container">
-                <img src="https://example.com/quiescence_search_diagram.png" alt="Quiescence Search Diagram">
-                <p>Figure: Visual representation of Quiescence search limiting the exploration of irrelevant branches.</p>
-            </div>
-        </section>
+        <h3>3.4 Position Evaluation</h3>
+        <p>The AI evaluates board positions using a combination of material balance (the value of pieces on the board) and positional factors (using piece-square tables). This provides a numerical score for any given board state, allowing the AI to compare different positions.</p>
+        <img src="https://media.giphy.com/media/26xBzI8F6BXxmtMyM/giphy.gif" alt="Position Evaluation Animation" class="gif">
 
-        <section id="code">
-            <h2>Code Explanation</h2>
-            <p>Here’s a detailed breakdown of the Chess AI code and its components:</p>
-
-            <div class="code-block">
-                <pre>
-// Import chess library for move generation
+        <h2 id="code-explanation">4. Code Explanation</h2>
+        <p>Let's go through the code line by line, explaining each component:</p>
+        <pre><code>
 import chess
+import random
+        </code></pre>
+        <p>These lines import the necessary libraries: <code>chess</code> for game representation and <code>random</code> for introducing some randomness in move selection.</p>
 
+        <pre><code>
 class ChessAI:
     def __init__(self, depth=3):
         self.depth = depth
-        
+        self.move_scores = {}
+        self.move_history = []
+        self.exploration_rate = 0.1
+        self.piece_square_tables = {
+            chess.PAWN: [...],
+            chess.KNIGHT: [...],
+            chess.BISHOP: [...],
+            chess.ROOK: [...],
+            chess.QUEEN: [...],
+            chess.KING: [...]
+        }
+        </code></pre>
+        <p>This defines the <code>ChessAI</code> class and its constructor. It initializes:</p>
+        <ul>
+            <li><code>depth</code>: How many moves ahead the AI will look</li>
+            <li><code>move_scores</code>: A dictionary to store scores of previously evaluated moves</li>
+            <li><code>move_history</code>: A list to keep track of recent moves</li>
+            <li><code>exploration_rate</code>: A factor to introduce some randomness in move selection</li>
+        </ul>
+        <p>Piece-square tables assign a score to each piece based on its position on the board. This encourages the AI to move pieces to strategically advantageous positions.</p>
+
+        <pre><code>
     def choose_move(self, board):
-        # Choose the best move using minimax algorithm
+        legal_moves = list(board.legal_moves)
         best_move = None
-        best_value = -float('inf')
-        for move in board.legal_moves:
+        best_score = float('-inf')
+        alpha = float('-inf')
+        beta = float('inf')
+
+        legal_moves = self.order_moves(board, legal_moves)
+
+        for move in legal_moves:
             board.push(move)
-            board_value = self.minimax(board, self.depth - 1, False)
+            score = -self.quiescence_search(board, self.depth - 1, -beta, -alpha, not board.turn)
             board.pop()
-            if board_value > best_value:
-                best_value = board_value
+
+            if score > best_score:
+                best_score = score
                 best_move = move
+
+            alpha = max(alpha, score)
+            if alpha >= beta:
+                break
+
+        self.update_move_scores(board, best_move, best_score)
+        self.update_move_history(best_move)
+
         return best_move
+        </code></pre>
+        <p>This method chooses the best move for the AI:</p>
+        <ul>
+            <li>It gets all legal moves and initializes variables for alpha-beta pruning.</li>
+            <li>Moves are ordered based on previous evaluations and some randomness.</li>
+            <li>For each move, it simulates the move, evaluates the resulting position using quiescence search, and undoes the move.</li>
+            <li>It keeps track of the best move found.</li>
+            <li>It uses alpha-beta pruning to reduce the number of evaluated positions.</li>
+            <li>Finally, it updates the move scores and history before returning the best move.</li>
+        </ul>
 
-    def minimax(self, board, depth, is_maximizing):
-        # Alpha-beta pruning within minimax to find the optimal move
-        ...
-                </pre>
-            </div>
-        </section>
+        <pre><code>
+    def minimax(self, board, depth, alpha, beta, maximizing_player):
+        if depth == 0 or board.is_game_over():
+            return self.evaluate_board(board)
 
-        <section id="conclusion">
-            <h2>Conclusion</h2>
-            <p>This project highlights the power of AI in making strategic decisions. By combining Minimax, Alpha-Beta Pruning, and Quiescence Search, the Chess AI is capable of evaluating numerous possibilities efficiently. The optimization techniques applied here can be expanded to other complex systems beyond games, demonstrating the vast potential of algorithmic decision-making.</p>
-        </section>
-    </main>
+        if maximizing_player:
+            max_eval = float('-inf')
+            for move in board.legal_moves:
+                board.push(move)
+                eval = self.minimax(board, depth - 1, alpha, beta, False)
+                board.pop()
+                max_eval = max(max_eval, eval)
+                alpha = max(alpha, eval)
+                if beta <= alpha:
+                    break
+            return max_eval
+        else:
+            min_eval = float('inf')
+            for move in board.legal_moves:
+                board.push(move)
+                eval = self.minimax(board, depth - 1, alpha, beta, True)
+                board.pop()
+                min_eval = min(min_eval, eval)
+                beta = min(beta, eval)
+                if beta <= alpha:
+                    break
+            return min_eval
+        </code></pre>
+        <p>This snippet defines the minimax function with alpha-beta pruning:</p>
+        <ul>
+            <li>It recursively evaluates the board position based on the depth of the search.</li>
+            <li>If it reaches the maximum depth or a game-over state, it evaluates the board position using the <code>evaluate_board</code> method.</li>
+            <li>It alternates between maximizing and minimizing player evaluations.</li>
+            <li>Alpha-beta pruning is applied to skip redundant calculations.</li>
+        </ul>
 
-    <footer>
-        <p>&copy; 2024 Chess AI Project. All rights reserved.</p>
-    </footer>
+        <h2 id="dry-run">5. Sample Dry Run</h2>
+        <p>Below is a sample dry run of the AI's decision-making process for a given board state:</p>
+        <img src="https://media.giphy.com/media/3o6Zt5G5b1TTWpvWPC/giphy.gif" alt="Sample Dry Run" class="gif">
+
+        <h2 id="conclusion">6. Conclusion</h2>
+        <p>This project demonstrates a functional and competitive chess AI using Python. The implemented algorithms provide a robust foundation for more advanced AI strategies and optimizations. Future improvements may include enhanced evaluation functions, more sophisticated move ordering techniques, and integration with chess databases for opening theory and endgame tablebases.</p>
+        
+        <footer>
+            <p>© 2024 Chess AI Project</p>
+        </footer>
+    </div>
+</main>
+
 </body>
-
 </html>
